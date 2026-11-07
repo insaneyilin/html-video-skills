@@ -4,6 +4,14 @@
 
 入口：[skills/html-video-demo/SKILL.md](skills/html-video-demo/SKILL.md)。可以让常用 Agent 直接读取，也可以把整个 `html-video-demo` 文件夹放入它支持的技能目录。本仓库不会自动修改任何 Agent 的全局配置。
 
+## 演示效果
+
+使用本流程生成的两幕笔记应用示例，约 **18 秒**，包含中文旁白、字幕和应用界面。所有内容均为虚构演示数据。
+
+[![笔记应用演示视频预览](docs/demo/notes-demo.gif)](docs/demo/notes-demo.mp4)
+
+动图为无声预览，点击可打开[带中文旁白的 MP4 原片](docs/demo/notes-demo.mp4)（1080p / 30fps）。
+
 ## 基于哪些项目
 
 这套流程建立在以下开源项目之上，感谢它们提供的基础能力：
@@ -57,9 +65,10 @@ skills/html-video-demo/
   scripts/              Python 音频管线与 Node 视频工具
   assets/starter/       可运行的虚构应用与示例配置
 tests/                  分组、路径、解码长度和切幕回归检查
+docs/demo/              README 演示视频与动图
 ```
 
-项目运行后会产生 `work/`、`.html-video/` 和 `exports/`。工作缓存与模型缓存不是发布素材；每次成片位于独立的导出目录，检查通过后才更新 `review.html` 和 `exports/latest.json`。示例与模板代码属于源码，视频、音频、虚拟环境和实际业务素材不进入本仓库。
+项目运行后会产生 `work/`、`.html-video/` 和 `exports/`。工作缓存与模型缓存不是发布素材；每次成片位于独立的导出目录，检查通过后才更新 `review.html` 和 `exports/latest.json`。README 中的脱敏演示素材随仓库保存；其他生成的视频、音频、虚拟环境和实际业务素材不进入本仓库。
 
 ## 适用范围
 
