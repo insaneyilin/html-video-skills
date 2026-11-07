@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>示例笔记页面</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #f2f7f4;
+        color: #183e32;
+        font:
+          18px/1.7 system-ui,
+          sans-serif;
+      }
+      main {
+        max-width: 1050px;
+        margin: 80px auto;
+        padding: 0 32px;
+      }
+      h1 {
+        font-size: 42px;
+        margin-bottom: 8px;
+      }
+      p {
+        color: #6e8377;
+      }
+      .composer,
+      .note {
+        background: white;
+        border: 1px solid #cfdfd4;
+        border-radius: 16px;
+        padding: 28px;
+        margin: 24px 0;
+      }
+      textarea {
+        width: 100%;
+        height: 150px;
+        border: 1px solid #c3d7ca;
+        border-radius: 10px;
+        font: inherit;
+        padding: 18px;
+        color: inherit;
+      }
+      button {
+        background: #087f68;
+        color: white;
+        border: 0;
+        border-radius: 8px;
+        font: inherit;
+        padding: 10px 24px;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+      .note {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      .note span {
+        flex: 1;
+      }
+      .note button {
+        background: #e8f2ec;
+        color: #087f68;
+        margin: 0;
+      }
+      small {
+        color: #779284;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <small>通用演示素材 · 非真实业务数据</small>
+      <h1>把想法保存下来</h1>
+      <p>输入内容，保存为卡片；也可以随时继续编辑。</p>
+      <section class="composer">
+        <label for="note">新的想法</label
+        ><textarea id="note" placeholder="写下一个想法…"></textarea
+        ><button id="save">保存卡片</button>
+      </section>
+      <section id="notes">
+        <article class="note">
+          <span>把复杂的事情拆成清楚的小步骤。</span><button>编辑</button>
+        </article>
+      </section>
+    </main>
+    <script>
+      const input = document.getElementById("note"),
+        list = document.getElementById("notes");
+      function wire(article) {
+        article.querySelector("button").onclick = () => {
+          input.value = article.querySelector("span").textContent;
+          article.remove();
+          input.focus();
+        };
+      }
+      list.querySelectorAll("article").forEach(wire);
+      document.getElementById("save").onclick = () => {
+        const text = input.value.trim();
+        if (!text) return;
+        const article = document.createElement("article");
+        article.className = "note";
+        const span = document.createElement("span");
+        span.textContent = text;
+        const button = document.createElement("button");
+        button.textContent = "编辑";
+        article.append(span, button);
+        list.prepend(article);
+        wire(article);
+        input.value = "";
+      };
+    </script>
+  </body>
+</html>

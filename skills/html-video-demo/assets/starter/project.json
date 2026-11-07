@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "title": "示例笔记应用",
+  "language": "Chinese",
+  "video": { "width": 1920, "height": 1080, "fps": 30, "accent": "#087f68" },
+  "voice": {
+    "model": "mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-8bit",
+    "revision": "41d3337e8b7f2843a75841595fc14e4b9a7a4b96",
+    "speaker": "Serena",
+    "instruction": "用自然、温和的普通话讲解软件操作。语速适中，像给同事做演示，关键步骤稍作停顿。保持平稳的讲述节奏，每句话完整收声。",
+    "seed": 42,
+    "temperature": 0.6,
+    "max_tokens": 1000,
+    "max_group_chars": 200,
+    "decoder_policy": "auto",
+    "target_lufs": -17
+  },
+  "alignment": {
+    "model": "mlx-community/Qwen3-ForcedAligner-0.6B-8bit",
+    "revision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+    "asr_model": "mlx-community/Qwen3-ASR-0.6B-8bit",
+    "asr_revision": "89e96d92ba34aca20b3e29fb10cc284097d1219f",
+    "pre_roll_seconds": 0.35,
+    "end_hold_seconds": 1.0,
+    "cut_rms_dbfs": -43
+  },
+  "scenes": [
+    {
+      "id": "overview",
+      "title": "把想法保存成一张卡片",
+      "kind": "steps",
+      "narration": [
+        "这段示例演示一个简单的笔记页面。",
+        "输入想法，保存成卡片，随后继续整理。"
+      ],
+      "items": ["输入想法", "保存卡片", "继续编辑"]
+    },
+    {
+      "id": "save",
+      "title": "从一个想法开始",
+      "kind": "steps",
+      "narration": [
+        "先写下想法，再点击保存。",
+        "新卡片会出现在列表中，之后还可以继续编辑。"
+      ],
+      "items": ["写下想法", "点击保存", "查看新卡片"]
+    }
+  ]
+}
